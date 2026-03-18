@@ -1,0 +1,17 @@
+body {
+  font-family: 'Roboto', 'Arial';
+}
+
+.fBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.fBtn:hover {
+  background-color: rgb(170, 163, 163);
+}

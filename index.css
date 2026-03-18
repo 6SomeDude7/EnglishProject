@@ -1,0 +1,13 @@
+body {
+  font-family: 'Roboto', 'Arial';
+}
+
+div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.linksDiv {
+  row-gap: 20px;
+}
