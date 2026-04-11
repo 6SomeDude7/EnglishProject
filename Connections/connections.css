@@ -1,0 +1,148 @@
+body {
+  font-family: 'Roboto', 'Arial';
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.fBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.fBtn:hover {
+  background-color: rgb(170, 163, 163);
+}
+
+.tile {
+  font-size: 20px;
+  border: 0px;
+  background-color: #EFEFE6;
+  height: 80px;
+  width: 150px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.activeButton {
+  border: 0px;
+  background-color: rgb(67, 77, 65);
+  color: white;
+  cursor: pointer;
+}
+
+.shuffleButton {
+  border-radius: 24px;
+  height: 48px;
+  width: 88px;
+  font-size: 16px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+}
+.shuffleButton:active {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: black;
+  background-color: white;
+  cursor: default;
+}
+
+.submitButton {
+  border-radius: 24px;
+  height: 48px;
+  width: 88px;
+  font-size: 16px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  background-color: black;
+  color: white;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: black;
+  background-color: white;
+  cursor: default;
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(3 * 8px + 4 * 150px);
+  min-height: 400px;
+}
+
+.rulesP {
+  width: 100%;
+  text-align: center;
+}
+
+.gameBoard {
+  position: relative;
+  width: calc(3 * 8px + 4 * 150px);
+  height: calc(3 * 8px + 4 * 80px + 3 * 8px);
+}
+
+.SolvedDiv {
+  position: absolute;
+  display: grid;
+  row-gap: 8px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.categorysDiv {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  gap: 8px;
+  width: calc(3 * 8px + 4 * 150px);
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 0;
+  min-width: 0;
+}
+
+.submitButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 400px;
+}
+
+.solvedGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(3 * 8px + 4 * 150px);
+  background-color: rgb(249, 223, 109);
+  height: 80px;
+  border-radius: 5px;
+}
+
+h3 {
+  margin-bottom: 1px
+}
+
+p {
+  margin-top: 1px;
+}

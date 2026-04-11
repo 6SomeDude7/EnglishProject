@@ -1,0 +1,93 @@
+.SolvedDiv {
+  display: grid;
+  row-gap: 12px;
+  margin-bottom: 16px;
+}
+
+.solvedGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 78px;
+  border-radius: 6px;
+  background-color: rgb(232, 214, 111);
+
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.solvedGroup.showSolved {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.solvedGroup h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.solvedGroup p {
+  margin: 4px 0 0;
+  font-size: 1.2rem;
+}
+
+.categorysDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.categorysDiv button {
+  height: 78px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.categorysDiv button.correctShrink {
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+
+.categorysDiv button.gone {
+  visibility: hidden;
+}
+
+.submitButtonDiv {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.solvedGroup {
+  transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
+}
+
+@keyframes wrongShake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes wrongFlash {
+  0% { background-color: inherit; }
+  50% { background-color: #ff4d4d; }
+  100% { background-color: inherit; }
+}
+
+.wrongGuess {
+  animation: wrongShake 0.3s ease, wrongFlash 0.3s ease;
+}
