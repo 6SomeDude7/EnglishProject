@@ -26,7 +26,13 @@ const solvedGroups = new Set();
 let solvedOrder = JSON.parse(localStorage.getItem("solvedOrder")) || [];
 
 let solvedCount = 0;
-let mistakes = 0;
+
+if (localStorage.getItem("mistakes") === null) {
+  localStorage.setItem("mistakes", "0");
+  }
+
+mistakes = parseInt(localStorage.getItem("mistakes"));
+console.log(mistakes)
 
 function getActiveButtons() {
   return document.querySelectorAll(".activeButton");
@@ -163,6 +169,8 @@ function submitButtonClicked() {
       setTimeout(() => btn.classList.remove("wrongGuess"), 300);
     });
     mistakes++;
+    localStorage.setItem("mistakes", mistakes);
+    console.log(mistakes)
     mistakesPElement.innerHTML = `Mistakes: ${mistakes}`
   }
 }
@@ -194,7 +202,7 @@ function run() {
   localStorage.setItem("gameFinished", "false");
   }
   const gameFinished = localStorage.getItem("gameFinished");
-
+  mistakesPElement.innerHTML = `Mistakes: ${mistakes}`
   submitButtonElement.disabled = true;
   addEventListeners(buttonsClicked);
   shuffleButtons();
