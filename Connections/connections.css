@@ -125,7 +125,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 400px;
 }
 
 .solvedGroup {
@@ -139,6 +138,11 @@ body {
   border-radius: 5px;
 }
 
+.mistakesDiv {
+  display: flex;
+  justify-content: center;
+  padding-top: 375px;
+}
 h3 {
   margin-bottom: 1px
 }

@@ -1,14 +1,18 @@
 const ButtonsElements = document.querySelectorAll(".categorysDiv button");
 const allButtonElements = document.querySelector(".categorysDiv");
-const shuffleButtonElement = document.querySelector(".shuffleButton");
+const shuffleButtonElement = document.querySelector(".shuffleButton[data-group='0']");
 const submitButtonElement = document.querySelector(".submitButton");
+const resetButtonElement = document.querySelector(".shuffleButton[data-group='1']")
+const mistakesPElement = document.querySelector(".mistakesP")
 
 const groups = [
   ["A", "B", "C", "D"],
   ["W", "X", "Y", "Z"],
-  ["PAIN", "MORE PAIN", "EVEN MORE PAIN", "MAX PAIN"],
-  ["1", "2", "3", "4"]
+  ["1", "2", "3", "4"],
+  ["PAIN", "MORE PAIN", "EVEN MORE PAIN", "MAX PAIN"]
 ];
+
+const groupNames = ["DOGS", "STRESS", "NO MORE STRESS", "???"];
 
 const solvedDivs = [
   document.querySelector(".solvedGroup[data-group='0']"),
@@ -16,6 +20,13 @@ const solvedDivs = [
   document.querySelector(".solvedGroup[data-group='2']"),
   document.querySelector(".solvedGroup[data-group='3']")
 ];
+
+const solvedGroups = new Set();
+
+let solvedOrder = JSON.parse(localStorage.getItem("solvedOrder")) || [];
+
+let solvedCount = 0;
+let mistakes = 0;
 
 function getActiveButtons() {
   return document.querySelectorAll(".activeButton");
@@ -26,7 +37,8 @@ function addEventListeners(func) {
     button.addEventListener("click", func);
   });
   submitButtonElement.addEventListener("click", submitButtonClicked);
-  shuffleButtonElement.addEventListener("click", shuffleButtons)
+  shuffleButtonElement.addEventListener("click", shuffleButtons);
+  resetButtonElement.addEventListener("click", resetGame);
 }
 
 function buttonsClicked(event) {
@@ -66,11 +78,11 @@ function checkMatch(selected, groups) {
 }
 
 function showSolvedGroup(groupIndex, activeButtons) {
-  const solvedDiv = solvedDivs[groupIndex];
+  const solvedDiv = solvedDivs[solvedCount];
   const matchedGroup = groups[groupIndex];
 
   solvedDiv.innerHTML = `
-    <h3>GROUP ${groupIndex + 1}</h3>
+    <h3>${groupNames[groupIndex]}</h3>
     <p>${matchedGroup.join(", ")}</p>
   `;
 
@@ -87,10 +99,18 @@ function showSolvedGroup(groupIndex, activeButtons) {
     });
 
     solvedDiv.classList.add("showSolved");
+    shuffleButtons();
     submitButtonElement.disabled = true;
-    
-    collapseGrid();
   }, 350);
+
+  solvedOrder.push(groupIndex);
+  localStorage.setItem("solvedOrder", JSON.stringify(solvedOrder));
+
+  solvedCount++;
+  
+  if (solvedCount === 4) {
+    localStorage.setItem("gameFinished", "true");
+  }
 }
 
 function collapseGrid() {
@@ -102,6 +122,32 @@ function collapseGrid() {
   visibleButtons.forEach(btn => container.appendChild(btn));
 }
 
+function revealFinishedGame() {
+  solvedOrder.forEach((groupIndex, displayIndex) => {
+    if (displayIndex >= solvedDivs.length) return;
+
+    const solvedDiv = solvedDivs[displayIndex];
+    const matchedGroup = groups[groupIndex];
+
+    if (!solvedDiv || !matchedGroup) return;
+
+    solvedDiv.innerHTML = `
+      <h3>${groupNames[groupIndex]}</h3>
+      <p>${matchedGroup.join(", ")}</p>
+    `;
+
+    solvedDiv.classList.add("showSolved");
+  });
+
+  ButtonsElements.forEach(button => {
+    button.classList.add("gone");
+    button.disabled = true;
+    button.active = false;
+  });
+
+  submitButtonElement.disabled = true;
+}
+
 function submitButtonClicked() {
   const activeButtons = Array.from(getActiveButtons());
   const selected = activeButtons.map(btn => btn.textContent.trim());
@@ -110,18 +156,14 @@ function submitButtonClicked() {
 
   if (matchedIndex !== -1) {
     showSolvedGroup(matchedIndex, activeButtons);
-  }
+  } 
   else {
-    const activeButtons = getActiveButtons();
-
     activeButtons.forEach(btn => {
       btn.classList.add("wrongGuess");
-
-    // remove so it can be triggered again later
-      setTimeout(() => {
-        btn.classList.remove("wrongGuess");
-      }, 300);
+      setTimeout(() => btn.classList.remove("wrongGuess"), 300);
     });
+    mistakes++;
+    mistakesPElement.innerHTML = `Mistakes: ${mistakes}`
   }
 }
 
@@ -139,13 +181,31 @@ function shuffleButtons() {
   buttons.forEach(button => container.appendChild(button));
 }
 
+function resetGame() {
+  localStorage.removeItem("gameFinished");
+  localStorage.removeItem("solvedOrder");
+  localStorage.removeItem("mistakes");
+
+  location.reload();
+}
+
 function run() {
+  if (localStorage.getItem("gameFinished") === null) {
+  localStorage.setItem("gameFinished", "false");
+  }
+  const gameFinished = localStorage.getItem("gameFinished");
+
   submitButtonElement.disabled = true;
   addEventListeners(buttonsClicked);
   shuffleButtons();
+
   ButtonsElements.forEach(button => {
     button.active = false;
   });
+
+  if (gameFinished === "true") {
+    revealFinishedGame();
+  }
 }
 
 run();
