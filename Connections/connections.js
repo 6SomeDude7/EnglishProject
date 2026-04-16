@@ -202,7 +202,9 @@ function run() {
   localStorage.setItem("gameFinished", "false");
   }
   const gameFinished = localStorage.getItem("gameFinished");
+
   mistakesPElement.innerHTML = `Mistakes: ${mistakes}`
+  
   submitButtonElement.disabled = true;
   addEventListeners(buttonsClicked);
   shuffleButtons();
@@ -213,6 +215,10 @@ function run() {
 
   if (gameFinished === "true") {
     revealFinishedGame();
+  }
+  else {
+    localStorage.removeItem("solvedOrder")
+    solvedOrder = JSON.parse(localStorage.getItem("solvedOrder")) || [];
   }
 }
 
