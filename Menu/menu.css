@@ -1,0 +1,86 @@
+body {
+  font-family: 'Roboto', 'Arial';
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.fBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+.bigTitle {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.bigTitleP {
+  margin-top: 0px;
+  padding-top: 0px;
+  opacity: 0.75;
+}
+
+.titleDiv {
+  width: 100%;
+  text-align: center;
+}
+
+.mainDiv {
+  width: 900px;
+}
+
+.titleDiv h1 {
+  font-size: 44px;
+}
+
+.menuPartDiv {
+  display: flex;
+}
+
+.food {
+  width: 50%;
+  text-align: center;
+}
+
+.styledLine {
+  border: 0;
+  height: 1px;
+  background: #333;
+  width: 80%;
+}
+
+.verticalLine {
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+  height: 300px;
+
+}
+
+.drinks {
+  width: 50%;
+  text-align: center;
+}
+
+.menuItem {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.desc {
+  padding-top: 0px;
+  margin-top: 0px;
+  font-size: 14px;
+  opacity: 0.6;
+
+}

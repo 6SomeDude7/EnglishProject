@@ -1,0 +1,55 @@
+body {
+  font-family: 'Roboto', 'Arial';
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.fBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.endResultDiv img {
+  width: 200px;
+
+}
+
+.wordsDiv {
+  width: 100%;
+}
+
+.yesDiv {
+  display: flex;
+  align-items: start;
+}
+
+.ingredientesDiv {
+  text-align: center;
+  width: 50%;
+  margin-right: 100px;
+}
+
+.directionsDiv {
+  width: 400px;
+}
+
+.dogPictures {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+
+}
+
+.dogPictures img {
+  width: 160px;
+}

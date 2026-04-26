@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto', 'Arial';
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.fBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.pageDiv {
+  display: flex;
+  grid-template-rows: repeat(2, 1fr);
+  width: 650px;
+}
+
+.leftPannelDiv,
+.rightPannelDiv {
+  width: 50%;
+}
+
+.panel {
+  border: 5px solid #000;
+  padding: 5px;
+  background-color: #fff;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+.panel[data-group='0'] {
+  margin-bottom: 28px;
+}
