@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>Game Of Life</title>
-  <link rel="stylesheet" href="game.css">
+  <title>Project Doom and Dispair</title>
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/spinner.css">
+  <link rel="stylesheet" href="css/rulesPage.css">
+  <link rel="stylesheet" href="css/startScreen.css">
   <link rel="stylesheet" href="../General/general.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +16,78 @@
 <body>
   <div>
     <a class="fBtn" href="../index.html">Back</a>
+
+    <div id="gameContainer">
+      <button id="rulesBtn">Rules</button>
+      <div id="rulesOverlay" class="hidden">
+        <div class="rulesBox">
+          <button id="closeRules">✖</button>
+
+          <h2>How to Play</h2>
+          <p>🚗 Click on a path at the start: Career or College.</p>
+          <p>🎯 Spin the wheel to move your car forward.</p>
+          <p>💰 Land on Pay Day spaces to earn money.</p>
+          <p>🛑 Stop spaces trigger events.</p>
+          <p>🏁 Retire or ... to end the game.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="spinner-wrapper">
+          <div class="pointer"></div>
+          <div class="spinner" id="spinner">
+            <div class="center"></div>
+            <div class="numbers">
+              <div class="numbers">
+                <span style="--i:0">10</span>
+                <span style="--i:1">1</span>
+                <span style="--i:2">2</span>
+                <span style="--i:3">3</span>
+                <span style="--i:4">4</span>
+                <span style="--i:5">5</span>
+                <span style="--i:6">6</span>
+                <span style="--i:7">7</span>
+                <span style="--i:8">8</span>
+                <span style="--i:9">9</span>
+                <button class="spinBtn" onclick="spin()">Click Me!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="statScreen">
+        <h3>Stats</h3>
+        <p>Money: <span id="moneyStat">$1000</span></p>
+        <p>Salary: <span id="salaryStat">$0</span></p>
+        <p>Job: <span id="jobStat">None</span></p>
+        <p>Stress: <span id="stressStat">25/100</span></p>
+      </div>
+      <div class="board">
+        <svg id="pathLines"></svg>
+        <div id="startOverlay">
+          <div class="startBox">
+            <h1>Doom and Despair</h1>
+            <button id="startBtn">Start Game</button>
+          </div>
+        </div>
+
+        <div id="pathChoiceOverlay">
+          <div class="choiceCard" id="careerChoice">Career</div>
+          <div class="choiceCard" id="collegeChoice">College</div>
+        </div>
+        <div id="jobOverlay">
+          <div class="jobBox">
+            <h2>Pick a Job</h2>
+            <div id="jobCards"></div>
+          </div>
+        </div>
+        <div id="player" class="player-car">🚗</div>
+      </div>
+    </div>
   </div>
-  <script src="game.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/rules.js"></script>
 </body>
 </html>

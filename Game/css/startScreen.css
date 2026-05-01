@@ -1,0 +1,126 @@
+
+#startOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+  z-index: 100;
+}
+
+.startBox {
+  background: white;
+  width: 900px;
+  height: 650px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.startBox h1 {
+  padding-top: 25%;
+  margin-bottom: 20px;
+}
+
+#startBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: crimson;
+  color: white;
+  cursor: pointer;
+}
+
+
+#pathChoiceOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-radius: 20px;
+
+  z-index: 150;
+}
+
+#pathChoiceOverlay.show {
+  display: flex;
+}
+
+.choiceCard {
+  width: 180px;
+  height: 240px;
+  background: white;
+  border: 4px solid black;
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.choiceCard:hover {
+  transform: scale(1.08);
+}
+
+#jobOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 200;
+}
+
+#jobOverlay.show {
+  display: flex;
+}
+
+.jobBox {
+  background: white;
+  border: 3px solid black;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+#jobCards {
+  display: flex;
+  gap: 20px;
+}
+
+.jobCard {
+  width: 150px;
+  height: 190px;
+  border: 3px solid black;
+  border-radius: 14px;
+  background: #f8f8f8;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.jobCard:hover {
+  transform: scale(1.06);
+}

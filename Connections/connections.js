@@ -6,13 +6,13 @@ const resetButtonElement = document.querySelector(".shuffleButton[data-group='1'
 const mistakesPElement = document.querySelector(".mistakesP")
 
 const groups = [
-  ["A", "B", "C", "D"],
-  ["W", "X", "Y", "Z"],
-  ["1", "2", "3", "4"],
-  ["PAIN", "MORE PAIN", "EVEN MORE PAIN", "MAX PAIN"]
+  ["SLEEP", "MUSIC", "BOWLING", "FRIENDS"],
+  ["COFFEE", "OVERTIME", "DEADLINE", "EMAILS"],
+  ["PHONE", "SCROLL", "COMPARE", "NOTIFICATIONS"],
+  ["BREATHE", "WALK", "QUIET", "PAUSE"]
 ];
 
-const groupNames = ["DOGS", "STRESS", "NO MORE STRESS", "???"];
+const groupNames = ["WAYS TO REDUCE STRESS", "WORK STRESS/PRESSURE", "SOCIAL MEDIA STRESS", "WAYS TO CALM DOWN FAST"];
 
 const solvedDivs = [
   document.querySelector(".solvedGroup[data-group='0']"),
@@ -116,6 +116,7 @@ function showSolvedGroup(groupIndex, activeButtons) {
   
   if (solvedCount === 4) {
     localStorage.setItem("gameFinished", "true");
+    document.getElementById("winPopup").classList.add("show");
   }
 }
 
@@ -213,8 +214,13 @@ function run() {
     button.active = false;
   });
 
+  document.getElementById("closeWin").addEventListener("click", () => {
+  document.getElementById("winPopup").classList.remove("show");
+  });
+
   if (gameFinished === "true") {
     revealFinishedGame();
+    document.getElementById("winPopup").classList.add("show");
   }
   else {
     localStorage.removeItem("solvedOrder")

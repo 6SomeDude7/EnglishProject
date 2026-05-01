@@ -1,0 +1,109 @@
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.spinner {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  position: relative;
+  border: 10px solid white;
+
+  background: conic-gradient(
+    #00aaff 0deg 36deg,   /* 10 */
+    #3366ff 36deg 72deg,  /* 1 */
+    #9933ff 72deg 108deg, /* 2 */
+    #ff3399 108deg 144deg,/* 3 */
+    #ff3333 144deg 180deg,/* 4 */
+    #ff9933 180deg 216deg,/* 5 */
+    #ffcc00 216deg 252deg,/* 6 */
+    #99cc00 252deg 288deg,/* 7 */
+    #33cc33 288deg 324deg,/* 8 */
+    #009933 324deg 360deg /* 9 */
+  );
+
+  transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.center {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pointer */
+.pointer {
+  width: 6px;
+  height: 80px;
+  background: white;
+  position: absolute;
+  z-index: 2;
+}
+
+.numbers {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: 0;
+  left: 0;
+}
+
+.numbers span {
+  position: absolute;
+  top: 46%;
+  left: 46%;
+  transform:
+    rotate(calc(var(--i) * 36deg))
+    translate(100px)
+    rotate(calc(var(--i) * -36deg));
+
+  font-weight: bold;
+  color: white;
+}
+
+.spinBtn {
+  position: absolute;
+  inset: 0; /* top:0 left:0 right:0 bottom:0 */
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+.spinBtn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+#statScreen {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px 14px;
+
+  z-index: 50;
+}
+
+#statScreen h3 {
+  margin: 0 0 6px;
+}
+
+#statScreen p {
+  margin: 3px 0;
+}
