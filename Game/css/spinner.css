@@ -13,17 +13,13 @@
   border: 10px solid white;
 
   background: conic-gradient(
-    #00aaff 0deg 36deg,   /* 10 */
-    #3366ff 36deg 72deg,  /* 1 */
-    #9933ff 72deg 108deg, /* 2 */
-    #ff3399 108deg 144deg,/* 3 */
-    #ff3333 144deg 180deg,/* 4 */
-    #ff9933 180deg 216deg,/* 5 */
-    #ffcc00 216deg 252deg,/* 6 */
-    #99cc00 252deg 288deg,/* 7 */
-    #33cc33 288deg 324deg,/* 8 */
-    #009933 324deg 360deg /* 9 */
-  );
+  #3366ff 0deg 60deg,    /* 1 */
+  #9933ff 60deg 120deg,  /* 2 */
+  #ff3399 120deg 180deg, /* 3 */
+  #ff3333 180deg 240deg, /* 4 */
+  #ff9933 240deg 300deg, /* 5 */
+  #ffcc00 300deg 360deg  /* 6 */
+);
 
   transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -61,9 +57,9 @@
   top: 46%;
   left: 46%;
   transform:
-    rotate(calc(var(--i) * 36deg))
+    rotate(calc(var(--i) * 60deg))
     translate(100px)
-    rotate(calc(var(--i) * -36deg));
+    rotate(calc(var(--i) * -60deg));
 
   font-weight: bold;
   color: white;
@@ -86,7 +82,7 @@
 
 #statScreen {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   position: relative;
 
   font-family: Arial, sans-serif;

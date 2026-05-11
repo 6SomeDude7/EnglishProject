@@ -91,3 +91,23 @@
 .wrongGuess {
   animation: wrongShake 0.3s ease, wrongFlash 0.3s ease;
 }
+
+.oneAwayPopup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.oneAwayPopup.show {
+  opacity: 1;
+}

@@ -39,17 +39,13 @@
             <div class="center"></div>
             <div class="numbers">
               <div class="numbers">
-                <span style="--i:0">10</span>
                 <span style="--i:1">1</span>
                 <span style="--i:2">2</span>
                 <span style="--i:3">3</span>
                 <span style="--i:4">4</span>
                 <span style="--i:5">5</span>
                 <span style="--i:6">6</span>
-                <span style="--i:7">7</span>
-                <span style="--i:8">8</span>
-                <span style="--i:9">9</span>
-                <button class="spinBtn" onclick="spin()">Click Me!</button>
+                <button class="spinBtn">Click Me!</button>
               </div>
             </div>
           </div>
@@ -61,6 +57,7 @@
         <h3>Stats</h3>
         <p>Money: <span id="moneyStat">$1000</span></p>
         <p>Salary: <span id="salaryStat">$0</span></p>
+        <p>Loan: <span id="loanStat">$0</span></p>
         <p>Job: <span id="jobStat">None</span></p>
         <p>Stress: <span id="stressStat">25/100</span></p>
       </div>
@@ -81,6 +78,27 @@
           <div class="jobBox">
             <h2>Pick a Job</h2>
             <div id="jobCards"></div>
+          </div>
+        </div>
+        <div id="eventOverlay">
+          <div id="eventCard">
+            <h2 id="eventTitle">Event</h2>
+            <p id="eventText"></p>
+            <button id="eventCloseBtn">Continue</button>
+          </div>
+        </div>
+        <div id="eventOverlay">
+          <div id="eventCard">
+            <h2 id="eventTitle">Event</h2>
+            <p id="eventText"></p>
+            <button id="eventCloseBtn">Continue</button>
+          </div>
+        </div>
+        <div id="stopOverlay">
+          <div class="jobBox">
+            <h2 id="stopTitle">Choose Path</h2>
+            <p id="stopText"></p>
+            <div id="stopCards"></div>
           </div>
         </div>
         <div id="player" class="player-car">🚗</div>

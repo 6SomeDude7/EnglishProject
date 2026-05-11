@@ -1,4 +1,4 @@
-/* overlay base (hidden by default) */
+
 #rulesBtn {
   position: fixed;
   top: 20px;
@@ -31,14 +31,12 @@
   z-index: 200;
 }
 
-/* visible state */
 #rulesOverlay.show {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* rules box */
 .rulesBox {
   background: white;
   padding: 25px;
@@ -48,7 +46,6 @@
   position: relative;
 }
 
-/* close button */
 #closeRules {
   position: absolute;
   top: 10px;

@@ -83,6 +83,28 @@ function checkMatch(selected, groups) {
   return -1;
 }
 
+function checkOneAway(selected, groups) {
+  for (let i = 0; i < groups.length; i++) {
+    const matches = selected.filter(word => groups[i].includes(word));
+
+    if (matches.length === 3) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function showOneAwayPopup() {
+  const popup = document.getElementById("oneAwayPopup");
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 1000);
+}
+
 function showSolvedGroup(groupIndex, activeButtons) {
   const solvedDiv = solvedDivs[solvedCount];
   const matchedGroup = groups[groupIndex];
@@ -165,14 +187,18 @@ function submitButtonClicked() {
     showSolvedGroup(matchedIndex, activeButtons);
   } 
   else {
+    if (checkOneAway(selected, groups)) {
+      showOneAwayPopup();
+    }
+
     activeButtons.forEach(btn => {
       btn.classList.add("wrongGuess");
       setTimeout(() => btn.classList.remove("wrongGuess"), 300);
     });
+
     mistakes++;
     localStorage.setItem("mistakes", mistakes);
-    console.log(mistakes)
-    mistakesPElement.innerHTML = `Mistakes: ${mistakes}`
+    mistakesPElement.innerHTML = `Mistakes: ${mistakes}`;
   }
 }
 
