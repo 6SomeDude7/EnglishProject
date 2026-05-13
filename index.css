@@ -11,3 +11,13 @@ div {
 .linksDiv {
   row-gap: 20px;
 }
+
+.linksDiv p {
+  opacity: .5;
+}
+
+.locked {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
